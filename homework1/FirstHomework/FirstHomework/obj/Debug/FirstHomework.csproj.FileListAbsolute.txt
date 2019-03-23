@@ -1,0 +1,7 @@
+C:\Users\kotto\Desktop\c_sharp_university\homework1\FirstHomework\FirstHomework\obj\Debug\FirstHomework.csprojAssemblyReference.cache
+C:\Users\kotto\Desktop\c_sharp_university\homework1\FirstHomework\FirstHomework\obj\Debug\FirstHomework.csproj.CoreCompileInputs.cache
+C:\Users\kotto\Desktop\c_sharp_university\homework1\FirstHomework\FirstHomework\bin\Debug\FirstHomework.exe.config
+C:\Users\kotto\Desktop\c_sharp_university\homework1\FirstHomework\FirstHomework\bin\Debug\FirstHomework.exe
+C:\Users\kotto\Desktop\c_sharp_university\homework1\FirstHomework\FirstHomework\bin\Debug\FirstHomework.pdb
+C:\Users\kotto\Desktop\c_sharp_university\homework1\FirstHomework\FirstHomework\obj\Debug\FirstHomework.exe
+C:\Users\kotto\Desktop\c_sharp_university\homework1\FirstHomework\FirstHomework\obj\Debug\FirstHomework.pdb
