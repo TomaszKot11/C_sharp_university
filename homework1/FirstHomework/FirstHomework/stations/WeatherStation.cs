@@ -11,14 +11,30 @@ using ConsoleApplication1.sensores;
 
 namespace ConsoleApplication1.stations
 {
+
+
+    public class MeasurementEventArgs
+    {
+
+        //public SampleEventArgs(string s) { Text = s; }
+        //public String Text { get; } // readonly
+    }
+
+
     [DataContract]
     [KnownType(typeof(PressureSensor))]
     [KnownType(typeof(TemperatureSensor))]
     [KnownType(typeof(HumidityTempratureSensor))]
     class WeatherStation
     {
+
+        public event Measurement ;
+
+        public delegate void MeasurementHandler(object sender, MeasurementEventArgs e);
+
         [DataMember]
         private List<Sensor> parts = new List<Sensor>();
+
 
         [DataMember]
         public double _serializationPeriod;

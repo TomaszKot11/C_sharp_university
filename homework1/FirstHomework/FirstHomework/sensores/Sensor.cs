@@ -8,6 +8,9 @@ public class Sensor
 
     // backing field 
     private String _name;
+    public event ConsoleApplication1.Measurement measurement;
+    public delegate void MeasurementDelegate(ConsoleApplication1.Measurement measurement);
+   
     public String Name
     {
         get
@@ -27,6 +30,7 @@ public class Sensor
         counter = 0;
    }
 
+   
 
     public Sensor()
 	{

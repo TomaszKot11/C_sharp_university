@@ -5,3 +5,9 @@ C:\Users\kotto\Desktop\c_sharp_university\homework1\FirstHomework\FirstHomework\
 C:\Users\kotto\Desktop\c_sharp_university\homework1\FirstHomework\FirstHomework\bin\Debug\FirstHomework.pdb
 C:\Users\kotto\Desktop\c_sharp_university\homework1\FirstHomework\FirstHomework\obj\Debug\FirstHomework.exe
 C:\Users\kotto\Desktop\c_sharp_university\homework1\FirstHomework\FirstHomework\obj\Debug\FirstHomework.pdb
+C:\Users\dotnet2-36\Desktop\laboratoria\C_sharp_university\homework1\FirstHomework\FirstHomework\bin\Debug\FirstHomework.exe.config
+C:\Users\dotnet2-36\Desktop\laboratoria\C_sharp_university\homework1\FirstHomework\FirstHomework\bin\Debug\FirstHomework.exe
+C:\Users\dotnet2-36\Desktop\laboratoria\C_sharp_university\homework1\FirstHomework\FirstHomework\bin\Debug\FirstHomework.pdb
+C:\Users\dotnet2-36\Desktop\laboratoria\C_sharp_university\homework1\FirstHomework\FirstHomework\obj\Debug\FirstHomework.csprojResolveAssemblyReference.cache
+C:\Users\dotnet2-36\Desktop\laboratoria\C_sharp_university\homework1\FirstHomework\FirstHomework\obj\Debug\FirstHomework.exe
+C:\Users\dotnet2-36\Desktop\laboratoria\C_sharp_university\homework1\FirstHomework\FirstHomework\obj\Debug\FirstHomework.pdb
