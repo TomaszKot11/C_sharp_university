@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Json;
+using System.Threading;
 
 [DataContract]
 public class Sensor
@@ -8,9 +9,12 @@ public class Sensor
 
     // backing field 
     private String _name;
-    public event ConsoleApplication1.Measurement measurement;
-    public delegate void MeasurementDelegate(ConsoleApplication1.Measurement measurement);
-   
+
+    // delegate definition
+    public delegate void MeasurementTakenEventHandler(object source, EventArgs args);
+    public event MeasurementTakenEventHandler MeasurementTaken;
+    private static int counter;
+
     public String Name
     {
         get
@@ -23,18 +27,31 @@ public class Sensor
            _name = value;
         }
     }
-    private static int counter;
-    
-   static Sensor()
-   { 
-        counter = 0;
-   }
-
    
-
+    
+    static Sensor()
+    { 
+        counter = 0;
+    }
+   
     public Sensor()
 	{
         counter++;
         Name = "Sensor" + counter;
     }
+
+    public virtual void TakeMeasurements()
+    {
+        Console.WriteLine("Taking measurement...");
+
+        Thread.Sleep(3000);
+
+    }
+
+    protected virtual void OnMeasurementTaken(EventArgs args)
+    {
+        if (MeasurementTaken != null)
+            MeasurementTaken(this, args);
+    }
+
 }

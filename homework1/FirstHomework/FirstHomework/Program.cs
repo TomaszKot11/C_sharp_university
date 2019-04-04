@@ -30,7 +30,7 @@ namespace ConsoleApplication1
             hps.PressureValue = 1.2;
             sensores.TemperatureSensor ts = new sensores.TemperatureSensor();
             ts.MeasurementUnit = "Celcius";
-            ts.Measurement = 26.6;
+            ts.MeasurementValue = 26.6;
 
             stations.WeatherStation ws = new stations.WeatherStation();
             ws.SerializationPeriod = 5000;
@@ -43,20 +43,20 @@ namespace ConsoleApplication1
 
             // mock data to test filtering
             sensores.TemperatureSensor ts1 = new sensores.TemperatureSensor();
-            ts1.Measurement = 31;
+            ts1.MeasurementValue = 31;
             ts1.MeasurementUnit = "Celcius";
             sensores.TemperatureSensor ts2 = new sensores.TemperatureSensor();
-            ts2.Measurement = 35;
+            ts2.MeasurementValue = 35;
             ts2.MeasurementUnit = "Celcius";
             sensores.TemperatureSensor ts3 = new sensores.TemperatureSensor();
-            ts3.Measurement = 29;
+            ts3.MeasurementValue = 29;
             ts3.MeasurementUnit = "Celcius";
 
             ws.AddSensor(ts1);
             ws.AddSensor(ts2);
             ws.AddSensor(ts3);
 
-            Func<Sensor, bool> samplePredicate = x => ((ITemperature)x).Measurement > 30;
+            Func<Sensor, bool> samplePredicate = x => ((ITemperature)x).MeasurementValue > 30;
             Func<Sensor, bool> whichEleents = x => x is ITemperature;
             List<Sensor>  mySensores = ws.GetSpecificSensorTypesFullfillingGivenPredicate(whichEleents, samplePredicate);
             foreach(Sensor sensor1 in mySensores)

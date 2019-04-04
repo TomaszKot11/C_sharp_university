@@ -8,7 +8,7 @@ namespace ConsoleApplication1
 {
     interface ITemperature
     {
-        double Measurement { get; set; }
+        double MeasurementValue { get; set; }
         string MeasurementUnit { get; set; }
         
     }

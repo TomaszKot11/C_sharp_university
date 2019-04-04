@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Json;
+using FirstHomework.Common;
 
 namespace ConsoleApplication1.sensores
 {
@@ -19,6 +20,24 @@ namespace ConsoleApplication1.sensores
         public override string ToString()
         {
             return "The pressure value is: " + this.PressureValue + " and the humidity is: " + HumidityValue;
+        }
+
+        public override void TakeMeasurements()
+        {
+            base.TakeMeasurements();
+            Random random = new Random();
+
+            Dictionary<string, Double> dictionary = new Dictionary<string, double>();
+
+            HumidityValue = random.Next(0, 200);
+            PressureValue = random.Next(0, 200);
+            
+            dictionary.Add("humidity", HumidityValue);
+            dictionary.Add("pressure", PressureValue);
+
+            MeasurementArgs args = new MeasurementArgs(new Measurement(dictionary));
+
+            OnMeasurementTaken(args);
         }
     }
 }

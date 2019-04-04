@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Json;
+using FirstHomework.Common;
 
 namespace ConsoleApplication1.sensores
 {
@@ -13,13 +14,32 @@ namespace ConsoleApplication1.sensores
     {
 
         [DataMember]
-        public double Measurement { get; set; }
+        public double MeasurementValue { get; set; }
         [DataMember]
         public string MeasurementUnit { get; set; }
 
         public override string ToString()
         {
-            return "The temperature is: " + this.Measurement + " " + this.MeasurementUnit;
+            return "The temperature is: " + this.MeasurementValue + " " + this.MeasurementUnit;
+        }
+
+
+        public override void TakeMeasurements()
+        {
+            base.TakeMeasurements();
+            string[] units = new string[] { "Celcius", "Fahrenheit" };
+            Random random = new Random();
+            int randomIndex = random.Next(0, units.Length);
+            Dictionary<string, Double> dictionary = new Dictionary<string, double>();
+
+            MeasurementUnit = units[randomIndex];
+            MeasurementValue = random.Next(0, 200);
+
+            dictionary.Add(MeasurementUnit, MeasurementValue);
+
+            MeasurementArgs args = new MeasurementArgs(new Measurement(dictionary));
+
+            OnMeasurementTaken(args);
         }
     }
 }

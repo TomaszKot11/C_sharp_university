@@ -20,10 +20,10 @@ namespace ConsoleApplication1
             AddMeasurements(initialMeasurements);
         }
 
-        public void AddMeasurements(Dictionary<string, double> Measurements)
-        {
-            Measurements.ToList().ForEach(x => measurements.Add(x.Key, x.Value));
-        }
+       public void AddMeasurements(Dictionary<string, double> Measurements)
+       {
+           Measurements.ToList().ForEach(x => measurements.Add(x.Key, x.Value));
+       }
 
 
     }
