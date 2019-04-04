@@ -8,6 +8,7 @@ using System.Runtime.Serialization.Json;
 using System.IO;
 using System.Timers;
 using ConsoleApplication1.sensores;
+using FirstHomework.Common;
 
 namespace ConsoleApplication1.stations
 {
@@ -27,10 +28,6 @@ namespace ConsoleApplication1.stations
     [KnownType(typeof(HumidityTempratureSensor))]
     class WeatherStation
     {
-
-        public event Measurement ;
-
-        public delegate void MeasurementHandler(object sender, MeasurementEventArgs e);
 
         [DataMember]
         private List<Sensor> parts = new List<Sensor>();
@@ -64,7 +61,8 @@ namespace ConsoleApplication1.stations
 
         ~WeatherStation()
         {
-            aTimer.Stop();
+            if(aTimer != null)
+                aTimer.Stop();
         }
 
         public void AddSensor(Sensor sensor)
@@ -76,9 +74,9 @@ namespace ConsoleApplication1.stations
         {
             foreach (Sensor sensor in parts)
             {
-               Console.WriteLine("--------------");
-               Console.WriteLine(sensor);
-               Console.WriteLine("\n--------------");
+                Console.WriteLine("--------------");
+                Console.WriteLine(sensor);
+                Console.WriteLine("\n--------------");
             }
         }
 
@@ -98,7 +96,7 @@ namespace ConsoleApplication1.stations
         private void prepareDirectory()
         {
             string settings_dir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "homework_jsons");
-            Directory.CreateDirectory(settings_dir); 
+            Directory.CreateDirectory(settings_dir);
         }
 
         private void OnTimeEvent(object source, ElapsedEventArgs e)
@@ -137,6 +135,21 @@ namespace ConsoleApplication1.stations
             return parts.Where(whichTypes).Where(predicate).ToList();
         }
 
+        #region DELEGATE_METHODS
 
+        public void MeasurementTakenEventHandler(object source, EventArgs args) 
+        {
+            if(args is MeasurementArgs)
+            {
+                Console.WriteLine("New measurement!");
+
+                ((MeasurementArgs)args).PrintMeasurements();
+            } else
+            {
+                Console.WriteLine("Unknown event occured!");
+            }
+        }
+
+        #endregion
     }
 }

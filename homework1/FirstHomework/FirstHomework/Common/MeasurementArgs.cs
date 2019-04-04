@@ -14,5 +14,11 @@ namespace FirstHomework.Common
         {
             this.Measurement = measurement;
         }
+
+
+        public void PrintMeasurements()
+        {
+            Console.WriteLine(Measurement);
+        }
     }
 }

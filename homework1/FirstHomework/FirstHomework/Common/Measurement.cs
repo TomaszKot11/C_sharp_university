@@ -25,6 +25,18 @@ namespace ConsoleApplication1
            Measurements.ToList().ForEach(x => measurements.Add(x.Key, x.Value));
        }
 
+        public override string ToString()
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+            foreach(KeyValuePair<string, double> entry in measurements)
+            {
+                stringBuilder.Append(entry.Key + " " + entry.Value+" ");
+            }
+
+           
+            return stringBuilder.ToString();
+        }
+
 
     }
 }
