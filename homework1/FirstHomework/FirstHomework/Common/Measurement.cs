@@ -9,7 +9,7 @@ namespace ConsoleApplication1
     [Serializable]
     public class Measurement
     {
-        private Dictionary<string, double> measurements;
+        public Dictionary<string, double> measurements { get; private set; }
 
         public Measurement()
         {

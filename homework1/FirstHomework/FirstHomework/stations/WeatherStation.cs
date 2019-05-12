@@ -78,6 +78,7 @@ namespace ConsoleApplication1.stations
         private TcpListener server = null;
         private Mutex mutex = null;
         private Boolean ServerRunning = false;
+        private int counter = 0;
         #endregion
 
         [DataMember]
@@ -131,9 +132,13 @@ namespace ConsoleApplication1.stations
         // starts multithreading server 
         public void StartServer()
         {
+            if (aTimer == null || !aTimer.Enabled)
+                startTimer();
+
             IPAddress localAddr = IPAddress.Parse(IP_ADDRESS);
             this.server = new TcpListener(localAddr, PORT);
             this.mutex = new Mutex(false, MUTEX_GUID);
+            counter = 0;
 
             server.Start();
             Console.WriteLine("-------SERVER STARTED-------");
@@ -142,11 +147,12 @@ namespace ConsoleApplication1.stations
             while (ServerRunning)
             {
                 TcpClient client = server.AcceptTcpClient();
+                counter++;
                 clients.Add(client);
 
                 // start the thread for the incomming connection
                 ClientHandler clientHandler = new ClientHandler();
-                clientHandler.StartClient(client, clients.FindIndex(c => c == client).ToString(), this);
+                clientHandler.StartClient(client, counter.ToString(), this);
 
             }
             try
@@ -223,8 +229,9 @@ namespace ConsoleApplication1.stations
                 writer = new StreamWriter(pathToJsons, false);
               //  mutex.WaitOne();
                 writer.Write(json);
-               // this.measurements.Clear();
-               // mutex.ReleaseMutex();
+                // this.measurements.Clear();
+                // mutex.ReleaseMutex();
+                Console.WriteLine("Measurements serialized.");
             }
             finally
             {
