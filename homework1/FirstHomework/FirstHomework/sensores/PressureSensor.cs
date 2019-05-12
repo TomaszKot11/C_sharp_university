@@ -32,9 +32,9 @@ namespace ConsoleApplication1.sensores
         
             dictionary.Add("pressure", PressureValue);
 
-            MeasurementArgs args = new MeasurementArgs(new Measurement(dictionary));
+            Measurement measurement = new Measurement(dictionary);
 
-            OnMeasurementTaken(args);
+           OnMeasurementTaken(measurement);
         }
     }
 }

@@ -8,7 +8,7 @@ namespace FirstHomework.Common
 {
     public class MeasurementArgs : EventArgs
     {
-        private ConsoleApplication1.Measurement Measurement;
+        public ConsoleApplication1.Measurement Measurement { get; private set; }
 
         public MeasurementArgs(ConsoleApplication1.Measurement measurement)
         {

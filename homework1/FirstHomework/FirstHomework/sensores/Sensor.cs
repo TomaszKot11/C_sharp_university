@@ -1,5 +1,9 @@
-﻿using System;
+﻿using ConsoleApplication1;
+using ConsoleApplication1.stations;
+using System;
+using System.Net.Sockets;
 using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Runtime.Serialization.Json;
 using System.Threading;
 
@@ -9,10 +13,6 @@ public class Sensor
 
     // backing field 
     private String _name;
-
-    // delegate definition
-    public delegate void MeasurementTakenEventHandler(object source, EventArgs args);
-    public event MeasurementTakenEventHandler MeasurementTaken;
     private static int counter;
 
     public String Name
@@ -48,10 +48,25 @@ public class Sensor
 
     }
 
-    protected virtual void OnMeasurementTaken(EventArgs args)
+    protected virtual void OnMeasurementTaken(Measurement measurement)
     {
-        if (MeasurementTaken != null)
-            MeasurementTaken(this, args);
-    }
+        TcpClient tcpClient = new TcpClient();
+        try
+        {
+            tcpClient.Connect(WeatherStation.IP_ADDRESS, WeatherStation.PORT);
 
+            Console.WriteLine("Conencted to the server!");
+
+            NetworkStream networkStream = tcpClient.GetStream();
+            IFormatter formatter = new BinaryFormatter();
+            formatter.Serialize(networkStream, measurement);
+
+            networkStream.Close();
+            tcpClient.Close();
+        } catch(SocketException e)
+        {
+            Console.WriteLine("Error while connecting to the server");
+            Console.WriteLine(e);
+        }
+    }
 }

@@ -11,3 +11,6 @@ C:\Users\dotnet2-36\Desktop\laboratoria\C_sharp_university\homework1\FirstHomewo
 C:\Users\dotnet2-36\Desktop\laboratoria\C_sharp_university\homework1\FirstHomework\FirstHomework\obj\Debug\FirstHomework.csprojResolveAssemblyReference.cache
 C:\Users\dotnet2-36\Desktop\laboratoria\C_sharp_university\homework1\FirstHomework\FirstHomework\obj\Debug\FirstHomework.exe
 C:\Users\dotnet2-36\Desktop\laboratoria\C_sharp_university\homework1\FirstHomework\FirstHomework\obj\Debug\FirstHomework.pdb
+C:\Users\kotto\Desktop\c_sharp_university\homework1\FirstHomework\FirstHomework\bin\Debug\Newtonsoft.Json.dll
+C:\Users\kotto\Desktop\c_sharp_university\homework1\FirstHomework\FirstHomework\bin\Debug\Newtonsoft.Json.xml
+C:\Users\kotto\Desktop\c_sharp_university\homework1\FirstHomework\FirstHomework\obj\Debug\FirstHomework.csproj.CopyComplete

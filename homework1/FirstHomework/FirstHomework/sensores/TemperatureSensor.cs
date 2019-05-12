@@ -37,9 +37,9 @@ namespace ConsoleApplication1.sensores
 
             dictionary.Add(MeasurementUnit, MeasurementValue);
 
-            MeasurementArgs args = new MeasurementArgs(new Measurement(dictionary));
+            Measurement measurement = new Measurement(dictionary);
 
-            OnMeasurementTaken(args);
+            OnMeasurementTaken(measurement);
         }
     }
 }
